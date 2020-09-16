@@ -37,11 +37,7 @@ export default class UsersController {
   }
   
   public async destroy(ctx: HttpContextContract) {
-    let user = await User.find(ctx.params.id);
-    const body = ctx.request.all();
-    if (!user) {
-      return ctx.response.status(400).json("usuário não encontrado");
-    }
+    let user = await User.findOrFail(ctx.params.id);
     
     await user.delete()
     
