@@ -25,3 +25,18 @@ Route.get('/', async () => {
 })
 
 Route.resource("users", "UserController").apiOnly()
+Route.resource("foods", "FoodController").apiOnly()
+Route.resource("categories", "CategoryController").apiOnly()
+Route.resource("tables", "TableController").apiOnly()
+
+Route.resource("orders", "OrderController")
+
+Route.group(() => {
+
+  Route.post("/:id/food/:foodId", "OrderController.storeFood")
+
+  Route.put("/:id/food/:foodId", "OrderController.updateFood")
+
+}).prefix("orders")
+
+Route.post('/login', 'AuthController.login')
