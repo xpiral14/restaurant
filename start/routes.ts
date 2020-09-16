@@ -24,4 +24,4 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.resource("users", "UserController").only(["index", "show"])
+Route.resource("users", "UserController").apiOnly()
