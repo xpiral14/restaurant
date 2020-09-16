@@ -1,10 +1,5 @@
 import { DateTime } from "luxon";
-import {
-  BaseModel,
-  column,
-  hasMany,
-  HasMany,
-} from "@ioc:Adonis/Lucid/Orm";
+import { BaseModel, column, hasMany, HasMany } from "@ioc:Adonis/Lucid/Orm";
 import OrderFood from "./OrderFood";
 
 export default class Order extends BaseModel {
@@ -19,6 +14,9 @@ export default class Order extends BaseModel {
 
   @column({ columnName: "main_costumer_name" })
   mainCostumerName: string;
+
+  @column({ columnName: "is_open" })
+  isOpen: boolean;
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime;
