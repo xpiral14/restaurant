@@ -1,7 +1,7 @@
 import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import Food from "App/Models/Food";
 
-export default class Foods {
+export default class FoodController {
   public async index(ctx: HttpContextContract) {
     const foods = await Food.query().preload("category");
 
