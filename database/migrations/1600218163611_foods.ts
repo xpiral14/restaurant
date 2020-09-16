@@ -11,7 +11,7 @@ export default class Foods extends BaseSchema {
         .unsigned()
         .references("id")
         .inTable("categories")
-        .onDelete("SET NULL");
+        .onDelete("SET NULL").onUpdate("CASCADE");
       table.string("name").notNullable();
       table.string("description");
 

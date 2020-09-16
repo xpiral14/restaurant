@@ -6,7 +6,7 @@ export default class Tables extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.bigIncrements("id").primary().unsigned();
-      table.string("name").notNullable();
+      table.string("name").notNullable().unique();
       table.boolean("is_available").defaultTo(true).notNullable();
       table.timestamps(true);
     });

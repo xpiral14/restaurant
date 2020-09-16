@@ -12,10 +12,15 @@ export default class OrderFoods extends BaseSchema {
         .references("id")
         .inTable("orders");
 
-      table.bigInteger("food_id").unsigned().references("id").inTable("foods");
+      table
+        .bigInteger("food_id")
+        .unsigned()
+        .references("id")
+        .inTable("foods")
+        .notNullable();
 
       table.integer("quantity").defaultTo(1).notNullable();
-      
+
       table.timestamps(true);
     });
   }
