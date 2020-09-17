@@ -7,10 +7,10 @@ export default class OrderFood extends BaseModel {
   @column({ isPrimary: true })
   public id: number;
 
-  @column({ serializeAs: null })
+  @column({ columnName: "order_id", serializeAs: null })
   public orderId: number;
 
-  @column({ serializeAs: null })
+  @column({ columnName: "food_id", serializeAs: null })
   public foodId: number;
 
   @column()
@@ -27,9 +27,5 @@ export default class OrderFood extends BaseModel {
 
   @belongsTo(() => Food)
   food: BelongsTo<typeof Food>;
-
-  static get hidden(){
-    return ["orderId", "foodId"]
-  }
 
 }

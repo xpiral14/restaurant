@@ -11,7 +11,7 @@ export default class Food extends BaseModel {
   @column({ isPrimary: true })
   public id: number;
 
-  @column({ columnName: "category_id" })
+  @column({ columnName: "category_id", serializeAs: null })
   public categoryId: number;
 
   @column()
